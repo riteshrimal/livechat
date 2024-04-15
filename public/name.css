@@ -162,7 +162,7 @@ button {
 
 /* Button hover effect */
 button:hover {
-    background-color: #45a049; /*  shade  on hover */
+    background-color: #87CEEB,; /*  shade  on hover */
 }
 
 /* Additional styling for the name input */
