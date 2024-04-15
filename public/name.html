@@ -1,0 +1,91 @@
+<!-- name.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Name</title>
+      <link rel="stylesheet" href="name.css">
+</head>
+<body>
+    <style type="css">
+        
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="nameinput">
+
+       
+        <div class="ninput">
+
+                    <section>
+        <!-- Hero section -->
+        <section id="homepage" class="hero">
+            <!-- Hero image -->
+            <div class="hero-image">
+                <img src="b.jpg">
+            </div>
+        </section>
+
+       
+    </section>
+
+
+                <h2>Enter Your Name</h2>
+    <form id="nameForm">
+        <input type="text" id="nameInput" placeholder="Your Name" required>
+        <button type="submit">Start Chatting</button>
+    </form>
+
+
+
+            
+        </div>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <script>
+        document.getElementById('nameForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = document.getElementById('nameInput').value.trim();
+            if (name !== '') {
+                localStorage.setItem('chatUserName', name);
+                window.location.href = 'index.html'; // Redirect only after successful submission
+            }
+        });
+    </script>
+</body>
+</html>

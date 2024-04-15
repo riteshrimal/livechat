@@ -1,0 +1,199 @@
+/* public/styles.css */
+
+/* Resetting default styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font stack */
+    margin: 0; /* Resetting default margin */
+    padding: 0; /* Resetting default padding */
+    background-color: #f2f2f2; /* Background color */
+}
+
+/* Styling for the main chat container */
+
+
+
+
+
+
+
+
+
+
+        .nameinput {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -44px 20px 30px;
+            margin-top: 20px; 
+        }
+
+
+
+
+         .ninput{
+            height: 510px ;
+            width: 420px;
+            flex: 1;
+            margin: 30px 20px 30px;
+            padding: 20px;
+            text-align: center;
+            
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .ninput:hover {
+            transform: scale(1.03);
+        }
+        
+        
+        .ninput img {
+    height: 205px;
+    width: 370px;
+    margin: 86px 5px 5px;
+    border-radius: 30px;
+}
+
+
+        .intro h1{
+            font: italic,bold;
+            text-align: center;
+            align-items: center;
+            margin: 120px 0px 0px;
+
+        }
+
+        .ninput p{
+
+            margin: 50px 0px 0px;
+        }
+        .ninput h1{
+            margin: 100px 0px 0px;
+        }
+
+         
+       .ninput h5 {
+            font-style: italic;
+        }
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#chat-container {
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stacking elements vertically */
+    height: 100vh; /* Take full height of the viewport */
+    padding: 20px; /* Padding inside the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Styling for the container that holds chat messages */
+#messages-container {
+    flex-grow: 1; /* Allow this container to grow to take remaining space */
+    background-color: #fff; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    overflow-y: scroll; /* Allow vertical scrolling if content overflows */
+    padding: 20px; /* Padding inside the container */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+}
+
+/* Styling for the list of messages */
+#messages {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Resetting default padding */
+    margin: 0; /* Resetting default margin */
+}
+
+/* Styling for individual messages */
+#messages li {
+    margin-bottom: 10px; /* Spacing between messages */
+}
+
+/* Styling for the input container */
+#input-container {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Align items vertically */
+    margin-top: 20px; /* Spacing from the top */
+}
+
+/* Styling for input fields and buttons */
+input[type="text"], button {
+    padding: 10px; /* Padding for input fields and buttons */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+}
+
+/* Styling for text input */
+input[type="text"] {
+    flex-grow: 1; /* Allow the input field to grow */
+    margin-right: 10px; /* Spacing between input field and button */
+    border: 1px solid #ccc; /* Border color */
+    background-color: #fff; /* Background color */
+}
+
+/* Styling for the submit button */
+button {
+    background-color: #4CAF50; /* Button background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #45a049; /* Darker shade of green on hover */
+}
+
+/* Additional styling for the name input */
+#nameInput {
+    font-size: 16px; /* Font size */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding */
+    margin-right: 10px; /* Spacing between input field and button */
+    width: 200px; /* Width of the input field */
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    /* Adjust padding for smaller screens */
+    #chat-container {
+        padding: 10px;
+    }
+    
+    /* Adjust padding for smaller screens */
+    #messages-container {
+        padding: 10px;
+    }
+    
+    /* Adjust margin for smaller screens */
+    #input-container {
+        margin-top: 10px;
+    }
+    
+    /* Adjust font size for smaller screens */
+    input[type="text"], button {
+        font-size: 14px;
+    }
+}
