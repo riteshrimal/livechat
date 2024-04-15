@@ -1,0 +1,14 @@
+{
+  "name": "livechat",
+  "version": "1.0.0",
+  "description": "live chating ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "ritesh rimal",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
