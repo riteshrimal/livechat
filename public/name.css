@@ -155,14 +155,14 @@ input[type="text"] {
 
 /* Styling for the submit button */
 button {
-    background-color: #4CAF50; /* Button background color */
+    background-color: #87CEEB,; /* Button background color */
     color: white; /* Text color */
     cursor: pointer; /* Show pointer cursor on hover */
 }
 
 /* Button hover effect */
 button:hover {
-    background-color: #45a049; /* Darker shade of green on hover */
+    background-color: #45a049; /*  shade  on hover */
 }
 
 /* Additional styling for the name input */
