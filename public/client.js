@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const socket = io();
   const messagesList = document.getElementById('messages');
   const name = localStorage.getItem('chatUserName'); // Retrieve the user's name from local storage
-  const soundPath = 'mixkit-gaming-lock-2848.wav'; // Replace with your sound file path (MP3)
+  const soundPath = 'public/mixkit-gaming-lock-2848.wav'; // Replace with your sound file path (WAV)
+
+  // Include Howler.js in your HTML before this script
 
   function sendMessage() {
     const messageInput = document.getElementById('messageInput');
@@ -12,9 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
       socket.emit('message', { name, message }); // Send message and user name
       messageInput.value = '';
 
-      // Play pop-up sound on sending message
-      const audio = new Audio(soundPath);
-      audio.play();
+      // Play pop-up sound on sending message using Howler.js
+      const sound = new Howl({
+        src: soundPath,
+        format: 'wav' // Specify WAV format
+      });
+      sound.play();
     }
   }
 
