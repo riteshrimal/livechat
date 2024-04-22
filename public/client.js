@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const socket = io();
+  const socket = io(); // Connect to Socket.IO server
   const messagesList = document.getElementById('messages');
-  const name = localStorage.getItem('chatUserName'); // Retrieve the user's name from local storage
+  const name = localStorage.getItem('chatUserName'); // Retrieve user's name from local storage
   const notificationSoundPath = 'public/mixkit-gaming-lock-2848.mp3'; // Replace with notification sound path (MP3)
 
   function sendMessage() {
-    // Existing code to send message...
+    const messageInput = document.getElementById('messageInput');
+    const message = messageInput.value.trim();
+
+    if (message !== '') {
+      // Send message object to server
+      socket.emit('message', { name, message });
+      messageInput.value = ''; // Clear message input after sending
+    }
   }
 
   document.getElementById('sendButton').addEventListener('click', sendMessage);
