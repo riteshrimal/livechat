@@ -31,28 +31,14 @@ body {
 }
 
 #messages li {
-  display: flex; /* Change to flex for column layout */
+  display: flex; /* For column layout */
   flex-direction: column; /* Stack elements vertically */
-  margin-bottom: 15px;
   padding: 15px 20px;
   border-radius: 10px;
-  margin-bottom: 10px;
-  /* Adjust border and background based on sender (optional - JavaScript needed) */
-}
-
-.message-pop-up {
-  animation: pop-up 0.2s ease-in-out;
-}
-
-@keyframes pop-up {
-  from {
-    transform: scale(0.95);
-    opacity: 0.8;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  background-color: #eee;
+  animation: pop-up 0.2s ease-in-out; /* Subtle pop-up animation */
 }
 
 .sender {
@@ -68,7 +54,6 @@ body {
   background-color: #eee;
   border-color: #ddd;
 }
-
 
 #messages li p {
   font-size: 12px;
@@ -134,3 +119,12 @@ button:hover {
     font-size: 14px;
   }
 }
+
+@keyframes pop-up {
+  from {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
