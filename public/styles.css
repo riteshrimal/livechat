@@ -31,24 +31,28 @@ body {
 }
 
 #messages li {
-  display: inline-block;
+  display: flex; /* Change to flex for column layout */
+  flex-direction: column; /* Stack elements vertically */
   padding: 15px 20px;
   border-radius: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ddd;
-  background-color: #eee;
+  /* Adjust border and background based on sender (optional - JavaScript needed) */
 }
 
-/* Differentiate between sender and receiver messages (optional - JavaScript needed) */
 .sender {
+  /* Style for sender messages (optional - JavaScript needed) */
+  align-self: flex-end; /* Right-align sender messages */
   background-color: #fff;
   border-color: #ddd;
 }
 
 .receiver {
+  /* Style for receiver messages (optional - JavaScript needed) */
+  align-self: flex-start; /* Left-align receiver messages */
   background-color: #eee;
   border-color: #ddd;
 }
+
 
 #messages li p {
   font-size: 12px;
