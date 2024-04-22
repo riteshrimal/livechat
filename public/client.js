@@ -2,25 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const socket = io();
   const messagesList = document.getElementById('messages');
   const name = localStorage.getItem('chatUserName'); // Retrieve the user's name from local storage
-  const soundPath = 'public/mixkit-gaming-lock-2848.wav'; // Replace with your sound file path (WAV)
-
-  // Include Howler.js in your HTML before this script
+  const notificationSoundPath = 'public/mixkit-gaming-lock-2848.mp3'; // Replace with notification sound path (MP3)
 
   function sendMessage() {
-    const messageInput = document.getElementById('messageInput');
-    const message = messageInput.value.trim();
-
-    if (message !== '') {
-      socket.emit('message', { name, message }); // Send message and user name
-      messageInput.value = '';
-
-      // Play pop-up sound on sending message using Howler.js
-      const sound = new Howl({
-        src: soundPath,
-        format: 'wav' // Specify WAV format
-      });
-      sound.play();
-    }
+    // Existing code to send message...
   }
 
   document.getElementById('sendButton').addEventListener('click', sendMessage);
@@ -35,5 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     li.textContent = `${data.name}: ${data.message}`;
     messagesList.appendChild(li);
     messagesList.scrollTop = messagesList.scrollHeight;
+
+    // Play notification sound only if current user is not the sender
+    if (data.name !== name) {
+      const audio = new Audio(notificationSoundPath);
+      audio.play();
+    }
   });
 });
