@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Play notification sound only if current user is not the sender
     if (data.name !== name) {
       const audio = new Audio(notificationSoundPath);
-      audio.play();
+      audio.addEventListener('canplaythrough', () => {
+        audio.play();
+      });
     }
   });
 });
