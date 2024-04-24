@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Send message object to server
       socket.emit('message', { name, message });
       messageInput.value = ''; // Clear message input after sending
+      function playSound(url) {
+  const audio = new Audio(url);
+  audio.play();
+}
     }
   }
 
