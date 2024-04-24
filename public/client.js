@@ -28,12 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     messagesList.appendChild(li);
     messagesList.scrollTop = messagesList.scrollHeight;
 
-    // Play notification sound only if current user is not the sender
-    if (data.name !== name) {
-      const audio = new Audio(notificationSoundPath);
-      audio.addEventListener('canplaythrough', () => {
-        audio.play();
-      });
-    }
+    // Play notification sound for all users, regardless of sender
+    const audio = new Audio(notificationSoundPath);
+    audio.addEventListener('canplaythrough', () => {
+      audio.play();
+    });
   });
 });
