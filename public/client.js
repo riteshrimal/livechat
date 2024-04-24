@@ -22,16 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Update for notification sound
   socket.on('message', (data) => {
     const li = document.createElement('li');
     li.textContent = `${data.name}: ${data.message}`;
     messagesList.appendChild(li);
     messagesList.scrollTop = messagesList.scrollHeight;
+  });
 
-    // Play notification sound for all users, regardless of sender
+  // Listen for notification event and play sound
+  socket.on('notification', () => {
     const audio = new Audio(notificationSoundPath);
-    audio.addEventListener('canplaythrough', () => {
-      audio.play();
-    });
+    audio.play();
   });
 });
