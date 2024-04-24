@@ -12,50 +12,53 @@ const messagesFilePath = path.join(__dirname, 'messages.json');
 let messages = [];
 
 if (fs.existsSync(messagesFilePath)) {
-    console.log('File exists:', messagesFilePath);
-    try {
-        const data = fs.readFileSync(messagesFilePath);
-        messages = JSON.parse(data);
-    } catch (err) {
-        console.error('Error reading file:', err);
-    }
+  console.log('File exists:', messagesFilePath);
+  try {
+    const data = fs.readFileSync(messagesFilePath);
+    messages = JSON.parse(data);
+  } catch (err) {
+    console.error('Error reading file:', err);
+  }
 } else {
-    console.log('File does not exist:', messagesFilePath);
+  console.log('File does not exist:', messagesFilePath);
 }
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'name.html'));
+  res.sendFile(path.join(__dirname, 'public', 'name.html'));
 });
 
 app.get('/index.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 io.on('connection', (socket) => {
-    console.log('User connected');
+  console.log('User connected');
 
-    socket.emit('storedMessages', messages);
+  socket.emit('storedMessages', messages);
 
-    socket.on('message', (message) => {
-        console.log('Message received:', message);
-        messages.push(message);
-        io.emit('message', message);
+  socket.on('message', (message) => {
+    console.log('Message received:', message);
+    messages.push(message);
+    io.emit('message', message);
 
-        try {
-            fs.writeFileSync(messagesFilePath, JSON.stringify(messages));
-        } catch (err) {
-            console.error('Error saving messages to file:', err);
-        }
-    });
+    // Emit a notification event to trigger notification sound on clients
+    io.emit('notification');
 
-    socket.on('disconnect', () => {
-        console.log('User disconnected');
-    });
+    try {
+      fs.writeFileSync(messagesFilePath, JSON.stringify(messages));
+    } catch (err) {
+      console.error('Error saving messages to file:', err);
+    }
+  });
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
+  });
 });
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
